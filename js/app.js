@@ -18,10 +18,10 @@ function someFunction(event) {
 
     if(xo === true){
         xo = false;
-        $(event.currentTarget).html("X");
+        $(event.currentTarget).html("X").off("click");
 
     }else{
-        $(event.currentTarget).html("O");
+        $(event.currentTarget).html("O").off("click");
         xo = true;
     }
 
