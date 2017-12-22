@@ -2,10 +2,13 @@ console.log("tick tak toe")
 
 // give button clear board an on click event handler
 $('#clear-board').on('click', () =>{
+    //not good way to clear fix later
+    board.children().text("");
     console.log("clicked")
 });
 //store board in variable to use later
 let board = $('#board');
+
 // console.log(board);
 
 //global variable for x and o toggle
@@ -19,10 +22,13 @@ function someFunction(event) {
     if(xo === true){
         xo = false;
         $(event.currentTarget).html("X").off("click");
+        $('#turn').html("Now its O's turn")
 
     }else{
-        $(event.currentTarget).html("O").off("click");
         xo = true;
+        $(event.currentTarget).html("O").off("click");
+        $('#turn').html("Now its X's turn")
+
     }
 
 }
