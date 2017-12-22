@@ -6,17 +6,41 @@ $('#clear-board').on('click', () =>{
 });
 //store board in variable to use later
 let board = $('#board');
-console.log(board);
+// console.log(board);
+
+//global variable for x and o toggle
+let xo = true;
+
+// event handler for event listener in for loop
+function someFunction(event) {
+    // console.log(event);
+    // console.log("this function someFunction was run");
+
+    if(xo === true){
+        xo = false;
+        $(event.currentTarget).html("X");
+
+    }else{
+        $(event.currentTarget).html("O");
+        xo = true;
+    }
+
+}
+
+
 
 for(i=0; i < 9; i++){
     // make new div's with class square -> will be used as gameboard
     let div = $('<div>').attr('class', 'square');
     //append div to board
     $(board).append(div);
+
+
+    //created event listener using event handler as callback -> applies to individual div
+    div.on('click', someFunction);
+// someFunction(e);
 }
 
-//naming someFunction will create later as a placeholder
-$('.square').on('click', someFunction = () =>{
-    console.log("square clicked");
-});
+
+
 
